@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pagina de Alonso</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    STYLECSS
+    <script type="text/javascript">
+        function output(inp) {
+            x = document.getElementsByClassName("demo")
+            x.innerHTML = "<pre>"+inp+"</pre>";
+        }
+
+        function syntaxHighlight(json) {
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'key';
+                    } else {
+                        cls = 'string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+        var obj = { "id": "e00fce68658dc1b598d466d0", "name": "MN017", "last_app": null, "last_ip_address": "191.126.128.87", "last_heard": "2020-04-03T02:46:22.092Z", "last_handshake_at": "2020-04-02T22:04:46.039Z", "product_id": 13, "connected": false, "platform_id": 13, "cellular": true, "notes": "fluxsense jacto", "status": "normal", "serial_number": "B31KAB9173YJEXM", "iccid": "8956078100002535334", "last_iccid": "8956078100002535334", "imei": "358887094303813", "mobile_secret": "3BCUH3W9RSYMHB4", "current_build_target": "1.5.0", "system_firmware_version": "1.5.0", "default_build_target": "1.5.0", "variables": {}, "functions": ["reset", "OnVentilador", "OffVentilador", "Quemador", "Llama"] };
+        var str = JSON.stringify(obj, undefined, 4);
+        output(syntaxHighlight(str));
+    </script>
+    <script>
+        // tell the embed parent frame the height of the content
+        if (window.parent && window.parent.parent) {
+            window.parent.parent.postMessage(["resultsFrame", {
+                height: document.body.getBoundingClientRect().height,
+                slug: ""
+            }], "*")
+        }
+
+        // always overwrite window.name, in case users try to set it manually
+        window.name = "result"
+    </script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Controlador Local</h1>
+        <p>Una interfaz de software privado</p>
+    </div>
+
+    <div class="navbar">
+        <a href="/masinfo/">Saber mas</a>
+        <a href="/sobreme/" class="right">Local</a>
+    </div>
+
+    <div class="row">
+        <div class="side"></div>
+        <div class="main">
+            <h2>Estado en la Base de Datos</h2>
+            <h5>Id Sensor: {{.IdEquip}}; Sector: {{.Sector}}; Usuario: {{.User}}; Estado: {{.Status}};</h5>
+            <h2>Control Ventilador</h2>
+            <h5>API: Particle Sensores, Abr 1, 2020</h5>
+            <button class="btn success">Encender Ventilador</button>
+            <button class="btn success">Apagar Ventilador</button>
+            <br>
+            <h2>Control Quemador y Llama</h2>
+            <button class="btn warning">Encender Quemador</button>
+            <button class="btn success">Apagar Quemador</button>
+            <br>
+            <button class="btn warning">Encender Llama</button>
+            <button class="btn success">Apagar Llama</button>
+            <br>
+            <button class="btn danger">Apagar Todo</button>
+            <br>
+            <h2>Tabla de eventos</h2>
+            <h5>Tabla de Ultimos estados publicados</h5>
+            <button class="btn info">Actualizar Tabla</button>
+            <br>
+            <br>
+            <table class="w3-table-all w3-card-4">
+                <tbody>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                    </tr>
+                    <tr>
+                        <td>12.2</td>
+                        <td>12.12</td>
+                        <td>Encendido</td>
+                        <td>2020-03-19T20:12:21</td>
+                        <td>Chile</td>
+                    </tr>
+                    <tr>
+                        <td>12.2</td>
+                        <td>12.12</td>
+                        <td>Encendido</td>
+                        <td>2020-03-19T20:12:21</td>
+                        <td>Chile</td>
+                    </tr>
+                    <tr>
+                        <td>12.2</td>
+                        <td>12.12</td>
+                        <td>Encendido</td>
+                        <td>2020-03-19T20:12:21</td>
+                        <td>Chile</td>
+                    </tr>
+                    <tr>
+                        <td>12.2</td>
+                        <td>12.12</td>
+                        <td>Encendido</td>
+                        <td>2020-03-19T20:12:21</td>
+                        <td>Chile</td>
+                    </tr>
+                    <tr>
+                        <td>12.2</td>
+                        <td>12.12</td>
+                        <td>Encendido</td>
+                        <td>2020-03-19T20:12:21</td>
+                        <td>Chile</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2>*-*</h2>
+    </div>
+
+
+
+</body>
+
+</html>
